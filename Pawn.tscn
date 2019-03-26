@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://pawn.svg" type="Texture" id=1]
+[ext_resource path="res://Pawn.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0.933594, 0, 0, 1 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
+[node name="Pawn" type="Sprite"]
+
+position = Vector2( 0, -90 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+model_node = null
+
+[node name="Area2D" type="Area2D" parent="." index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Pickable" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( -20, 80, -40, 160, -48.917, 169.672, -48.917, 181.098, -79.1136, 211.702, -80, 240, -74.1353, 248.918, 75.2154, 249.326, 79.7041, 244.837, 79.7041, 210.56, 48.6914, 178.323, 49.9156, 166.489, 37.6737, 156.696, 23.7996, 77.5318, 56.4445, 68.5544, 57.2607, 62.0254, 27.8802, 47.7432, 42.8969, 36.2359, 48.2017, 10.1199, 41.2646, -16.4041, 22.9019, -33.1346, 1.2746, -40.0717, -21.5769, -33.5427, -37.4913, -20.8928, -47.6928, -0.0816193, -47.6928, 21.9537, -39.1235, 39.5004, -28.5139, 49.2939, -56.2621, 62.3519, -53.4057, 71.7373 )
+
+[node name="ProgressBar" type="ProgressBar" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -91.0
+margin_top = 260.0
+margin_right = 94.0
+margin_bottom = 287.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_styles/fg = SubResource( 1 )
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 50.0
+exp_edit = false
+rounded = false
+percent_visible = false
+_sections_unfolded = [ "Percent", "custom_colors", "custom_styles" ]
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
+
+
